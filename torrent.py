@@ -1,4 +1,5 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from pytbdbapi import api
 
 app = Flask(__name__)
 
@@ -12,6 +13,10 @@ def welcome():
 
 @app.route('/tracker')
 def tracker():
+    db = api.TVDB('BECF7AA2B2C2B4F4',actors=False,banners=True)
+    result = db.search('Dexter', 'en')
+    show = result[0]
+    show.load_banners()
     return render_template('tracker.html', navloc='tracker')
 
 if __name__ == '__main__':

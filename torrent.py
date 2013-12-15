@@ -8,7 +8,11 @@ app.config.update(dict(
 
 @app.route('/')
 def welcome():
-    return render_template('welcome.html', status='aok')
+    return render_template('welcome.html', navloc='home')
+
+@app.route('/tracker')
+def tracker():
+    return render_template('tracker.html', navloc='tracker')
 
 if __name__ == '__main__':
     app.run()

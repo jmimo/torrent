@@ -17,8 +17,10 @@ def tracker():
     result = db.search('Dexter', 'en')
     show = result[0]
     show.load_banners()
-    amount = len(show.banner_objects)
-    bannerurl = show.banner_objects[0].banner_url
+
+    seasons = [b for b in show.banner_objects if b.BannerType == "season"]
+    bannerurl = seasons[0].banner_url
+
     return render_template('tracker.html', navloc='tracker', bannerpath=bannerurl)
 
 if __name__ == '__main__':

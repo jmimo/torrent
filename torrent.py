@@ -18,10 +18,9 @@ def tracker():
     show = result[0]
     show.load_banners()
 
-    seasons = [b for b in show.banner_objects if b.BannerType == "season"]
-    bannerurl = seasons[0].banner_url
+    seasons = [b for b in show.banner_objects if b.BannerType == "season" and b.BannerType2 == "seasonwide"]
 
-    return render_template('tracker.html', navloc='tracker', bannerpath=bannerurl)
+    return render_template('tracker.html', navloc='tracker', banners=seasons)
 
 if __name__ == '__main__':
     app.run()

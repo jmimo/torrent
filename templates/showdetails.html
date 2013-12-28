@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>{{ show.SeriesName }}</h1>
+<p>{{ show.Overview }}</p>
+<img  src="http://thetvdb.com/banners/_cache/{{ show.poster }}"/>
+<br/>
+{{ feed.feed.title }}
+<br/>
+{% for entry in feed.entries %}
+<a href="{{ entry.link }}">{{ entry.title }}</><br/>
+{% endfor %}
+<!--
+<ul>
+{% for season in show %}
+    {% if season.season_number != 0 %}
+    <li>Season {{ season.season_number }}</li>
+        <ul>
+            {% for episode in season %}
+                <li>{{ episode.EpisodeName }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endfor %}
+</ul>
+-->
+{% endblock %}

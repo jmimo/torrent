@@ -1,14 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-<h1>Search</h1>
-<form name="search" action="result" method="get">
-<div class="col-lg-6">
-    <div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">Search</button>
-        </span>
-    </div>
+
+<div class="list-group">
+{% if shows is not defined %}
+<a class="list-group-item">Sorry Mate... Try again</a>
+{% else %}
+{% for show in shows %}
+<a class="list-group-item" href="/showdetails/{{ show.id }}">{{ show.SeriesName }}</a>
+{% endfor %}
+{% endif %}
 </div>
-</form>
+
 {% endblock %}

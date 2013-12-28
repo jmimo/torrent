@@ -5,9 +5,8 @@
 <p>{{ show.Overview }}</p>
 <img  src="http://thetvdb.com/banners/_cache/{{ show.poster }}"/>
 <br/>
-{{ feed.feed.title }}
 <br/>
-{% for entry in feed.entries %}
+{% for entry in feed %}
 <a href="{{ entry.enclosures[0].href }}">{{ entry.title }}</><br/>
 {% endfor %}
 <!--

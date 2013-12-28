@@ -34,9 +34,13 @@ def showdetails(showid):
     tvdbshow = tvdb.get_series(showid,'en')
     tvdbshow.update()
 
-    feed = feedparser.parse('http://www.torrentreactor.net/rss.php?search=' + tvdbshow.SeriesName)
+    #feed = feedparser.parse('http://www.torrentreactor.net/rss.php?search=' + tvdbshow.SeriesName)
+    #feed = feedparser.parse('http://www.ievsoftware.com/rss/tv.php?show=' + tvdbshow.SeriesName)
+    feed = feedparser.parse('http://kat.ph/search/' + tvdbshow.SeriesName + '/?rss=1')
 
-    return render_template('showdetails.html', navloc='home', show=tvdbshow, feed=feed)
+    filtered = [item for item in feed.entries if item.category == 'TV']
+
+    return render_template('showdetails1.html', navloc='home', show=tvdbshow, feed=filtered)
 
 if __name__ == '__main__':
     app.run()

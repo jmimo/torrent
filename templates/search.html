@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="list-group">
+{% if shows is not defined %}
+<a class="list-group-item">Sorry Mate... Try again</a>
+{% else %}
+{% for show in shows %}
+<a class="list-group-item" href="/showdetails/{{ show.id }}">{{ show.SeriesName }}</a>
+{% endfor %}
+{% endif %}
+</div>
+
+{% endblock %}

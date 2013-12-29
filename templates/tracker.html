@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Tracker</h1>
+<p class="lead"><i class="fa fa-spinner fa-spin"></i>This entity is capable of tracking series episodes when they appear.</p>
+<!-- img src="{{ bannerpath }}"/ -->
+<ul>
+{% for banner in banners %}
+<li><img src="{{ banner.banner_url }}"/></li>
+{% endfor %}
+</ul>
+{% endblock %}
